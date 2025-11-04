@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, clipboard } = require('electron');
 const path = require('path');
 const { keyboard, Key } = require('@nut-tree-fork/nut-js');
 const { getOpenWindows, focusWindow } = require('./windows-helper');
@@ -70,11 +70,16 @@ ipcMain.handle('start-bot', async (event, { windowId, message }) => {
       await keyboard.releaseKey(Key.LeftControl);
       await keyboard.pressKey(Key.Backspace);
       await keyboard.releaseKey(Key.Backspace);
-      
-      for (const char of message) {
-        await keyboard.type(char);
-      }
-      
+
+      const previousClipboard = clipboard.readText();
+      clipboard.writeText(message);
+      await new Promise(resolve => setTimeout(resolve, 50));
+      await keyboard.pressKey(Key.LeftControl);
+      await keyboard.pressKey(Key.V);
+      await keyboard.releaseKey(Key.V);
+      await keyboard.releaseKey(Key.LeftControl);
+      clipboard.writeText(previousClipboard || '');
+
       await keyboard.pressKey(Key.Enter);
       await keyboard.releaseKey(Key.Enter);
     };
