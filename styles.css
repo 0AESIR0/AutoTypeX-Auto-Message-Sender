@@ -1,0 +1,262 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(15, 15, 30, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-size: 2em;
+  background: linear-gradient(90deg, #00d9ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 1em;
+  font-weight: 600;
+  color: #00d9ff;
+}
+
+.select-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+select {
+  flex: 0 1 70%;
+  max-width: 360px;
+  min-width: 220px;
+  padding: 10px 14px;
+  background: rgba(30, 30, 50, 0.8);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 10px;
+  color: #eee;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+select:hover {
+  border-color: rgba(0, 217, 255, 0.6);
+}
+
+select:focus {
+  outline: none;
+  border-color: #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn {
+  padding: 12px 18px;
+  background: rgba(0, 217, 255, 0.2);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.refresh-btn:hover {
+  background: rgba(0, 217, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+textarea {
+  padding: 15px;
+  background: rgba(30, 30, 50, 0.8);
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  border-radius: 10px;
+  color: #eee;
+  font-size: 1em;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+}
+
+textarea::placeholder {
+  color: #666;
+}
+
+.char-count {
+  text-align: right;
+  color: #888;
+  font-size: 0.85em;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  flex: 1;
+  padding: 15px 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-start {
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+  color: #000;
+}
+
+.btn-start:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 255, 136, 0.4);
+}
+
+.btn-start:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-stop {
+  background: linear-gradient(135deg, #ff4444, #cc0000);
+  color: #fff;
+}
+
+.btn-stop:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 68, 68, 0.4);
+}
+
+.btn-stop:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.idle .status-dot {
+  background: #888;
+}
+
+.status-indicator.running .status-dot {
+  background: #00ff88;
+}
+
+.status-indicator.error .status-dot {
+  background: #ff4444;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.timer-display {
+  font-size: 1.2em;
+  color: #00d9ff;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  font-size: 0.85em;
+}

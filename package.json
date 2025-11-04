@@ -1,0 +1,19 @@
+{
+  "name": "metin2-spam-bot",
+  "version": "1.0.0",
+  "description": "Metin2 spam bot - 15sn aralıklarla mesaj gönder 🚀",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "keywords": ["metin2", "spam", "bot", "electron"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0"
+  },
+  "dependencies": {
+    "@nut-tree-fork/nut-js": "^4.2.1"
+  }
+}

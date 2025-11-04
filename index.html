@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoTypeX - Auto Message Sender 🚀</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎮 AutoTypeX - Auto Message Sender</h1>
+      <p class="subtitle">Sends a message every 15 seconds 💬</p>
+    </header>
+
+    <main>
+      <section class="window-section">
+        <label for="window-select">📌 Select Window:</label>
+        <div class="select-wrapper">
+          <select id="window-select" disabled>
+            <option value="">Loading...</option>
+          </select>
+          <button id="refresh-btn" class="refresh-btn">🔄</button>
+        </div>
+      </section>
+
+      <section class="message-section">
+        <label for="message-input">✍️ Message:</label>
+        <textarea 
+          id="message-input" 
+          placeholder="Type your message here..."
+          maxlength="255"
+        ></textarea>
+        <div class="char-count">
+          <span id="char-count">0</span> / 255
+        </div>
+      </section>
+
+      <section class="controls">
+        <button id="start-btn" class="btn btn-start" disabled>
+          ▶️ Start
+        </button>
+        <button id="stop-btn" class="btn btn-stop" disabled>
+          ⏸️ Stop
+        </button>
+      </section>
+
+      <section class="status">
+        <div id="status-indicator" class="status-indicator idle">
+          <span class="status-dot"></span>
+          <span id="status-text">Ready</span>
+        </div>
+        <div id="timer-display" class="timer-display" style="display: none;">
+          Next message: <span id="timer">15</span>s
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="https://github.com/0AESIR0" target="_blank" rel="noopener noreferrer">AutoTypeX - 0AESIR0 🔗</a></p>
+    </footer>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
